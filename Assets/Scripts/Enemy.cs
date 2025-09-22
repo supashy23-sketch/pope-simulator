@@ -52,12 +52,12 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int dmg, Vector2 knockbackDir)
+    public void TakeDamage(int dmg, Vector2 knockbackDir, float force)
     {
         health -= dmg;
 
-        // กำหนด Knockback
-        knockbackVelocity = new Vector2(knockbackDir.x * knockbackForce, knockbackDir.y * knockbackForce);
+        // กำหนด Knockback ด้วย force ที่ส่งมา
+        knockbackVelocity = new Vector2(knockbackDir.x * force, knockbackDir.y * force);
         knockbackTimer = knockbackDuration;
 
         if (health <= 0)
