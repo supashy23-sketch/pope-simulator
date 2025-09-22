@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d218566477ed2a8439184eb9c2ad6896
+guid: 7bd0a722a7a862543b6cc0b1cb90e228
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 15
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: seagull_flying_2_0
+      name: walking_priest_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
-        width: 32
-        height: 32
+        y: 174
+        width: 58
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1454783ffbd0c3a4889f30601e898223
-      internalID: 641297339
+      spriteID: 0a0b940d4b737df408055be5a1a46951
+      internalID: 1234666542
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: seagull_flying_2_1
+      name: walking_priest_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 64
-        width: 32
-        height: 32
+        x: 58
+        y: 174
+        width: 58
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c26445d00a6e924d976fa41a23f2724
-      internalID: 2028775190
+      spriteID: f5368d1e727533f479411fb49aa5b19e
+      internalID: 1942634750
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: seagull_flying_2_2
+      name: walking_priest_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
-        width: 32
-        height: 32
+        y: 116
+        width: 58
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2d56694dd161594b952c443a4cfe1dd
-      internalID: 2074697177
+      spriteID: eafaa56bdd0bcf04e95514f9ecb8d817
+      internalID: 1814961939
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: seagull_flying_2_3
+      name: walking_priest_3
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
+        x: 58
+        y: 116
+        width: 58
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +187,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88c6eb09ab42d0346acccbd4bca0dc13
-      internalID: 324839639
+      spriteID: 8238635c29561194593024a8163ed20e
+      internalID: 1577849978
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: seagull_flying_2_4
+      name: walking_priest_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 58
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7c3c174696c132449937e48f0542e21
+      internalID: -98222462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walking_priest_5
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 58
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 244f46e07a713464f9580760ae5fdc92
+      internalID: 1742983908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: walking_priest_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 58
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,8 +250,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8259aa5026005b04c9ec1bbc91caffad
-      internalID: -1059622145
+      spriteID: 46fedd6d47acfdc47ab96cd8a555e63b
+      internalID: -1532321727
       vertices: []
       indices: 
       edges: []
@@ -225,11 +267,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      seagull_flying_2_0: 641297339
-      seagull_flying_2_1: 2028775190
-      seagull_flying_2_2: 2074697177
-      seagull_flying_2_3: 324839639
-      seagull_flying_2_4: -1059622145
+      walking_priest_0: 1234666542
+      walking_priest_1: 1942634750
+      walking_priest_2: 1814961939
+      walking_priest_3: 1577849978
+      walking_priest_4: -98222462
+      walking_priest_5: 1742983908
+      walking_priest_6: -1532321727
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

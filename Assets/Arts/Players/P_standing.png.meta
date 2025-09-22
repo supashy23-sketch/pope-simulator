@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d218566477ed2a8439184eb9c2ad6896
+guid: 9f1a22365abc645438a5ce379763deeb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 15
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: seagull_flying_2_0
+      name: P_standing_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
-        width: 32
-        height: 32
+        y: 174
+        width: 58
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1454783ffbd0c3a4889f30601e898223
-      internalID: 641297339
+      spriteID: a2debfa837e219b49937ff08add19954
+      internalID: 1759714798
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: seagull_flying_2_1
+      name: P_standing_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 64
-        width: 32
-        height: 32
+        x: 58
+        y: 174
+        width: 58
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c26445d00a6e924d976fa41a23f2724
-      internalID: 2028775190
+      spriteID: d3fa005045fa55e4ca0c8311f1221a35
+      internalID: -1082146786
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: seagull_flying_2_2
+      name: P_standing_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
-        width: 32
-        height: 32
+        y: 116
+        width: 58
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2d56694dd161594b952c443a4cfe1dd
-      internalID: 2074697177
+      spriteID: 184e4ebbccc30244885469e8389a8cc4
+      internalID: -381907454
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: seagull_flying_2_3
+      name: P_standing_3
       rect:
         serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
+        x: 58
+        y: 116
+        width: 58
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +187,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88c6eb09ab42d0346acccbd4bca0dc13
-      internalID: 324839639
+      spriteID: 5bad65bc63c16c3488ad5a03e81072fe
+      internalID: -2070931015
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: seagull_flying_2_4
+      name: P_standing_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 58
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16f027b7651d4ae42aebdf47b9b86e3c
+      internalID: -1290427358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_standing_5
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 58
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 607045cab601987409b86e7403ba4da7
+      internalID: 506345613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_standing_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 58
+        height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,8 +250,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8259aa5026005b04c9ec1bbc91caffad
-      internalID: -1059622145
+      spriteID: 4fba794471ca6da43b22bf59fa5f4af3
+      internalID: -1320809669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P_standing_7
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 0
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4686aefb7f0f17e40aa9f9d6a0d8ede6
+      internalID: -1889671439
       vertices: []
       indices: 
       edges: []
@@ -225,11 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      seagull_flying_2_0: 641297339
-      seagull_flying_2_1: 2028775190
-      seagull_flying_2_2: 2074697177
-      seagull_flying_2_3: 324839639
-      seagull_flying_2_4: -1059622145
+      P_standing_0: 1759714798
+      P_standing_1: -1082146786
+      P_standing_2: -381907454
+      P_standing_3: -2070931015
+      P_standing_4: -1290427358
+      P_standing_5: 506345613
+      P_standing_6: -1320809669
+      P_standing_7: -1889671439
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

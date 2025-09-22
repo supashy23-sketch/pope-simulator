@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d218566477ed2a8439184eb9c2ad6896
+guid: 352c34817d841dd43aa42801aeb5d4f5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 15
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,106 +110,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: seagull_flying_2_0
+      name: priest_attack_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 58
+        width: 58
+        height: 58
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1454783ffbd0c3a4889f30601e898223
-      internalID: 641297339
+      spriteID: 8ddde5cc86566714ea6d8631cbee27fa
+      internalID: 1215439450
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: seagull_flying_2_1
+      name: priest_attack_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 64
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 58
+        y: 58
+        width: 58
+        height: 58
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c26445d00a6e924d976fa41a23f2724
-      internalID: 2028775190
+      spriteID: 7c84eaa8a6f3347459554c94a7262346
+      internalID: 434090354
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: seagull_flying_2_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d2d56694dd161594b952c443a4cfe1dd
-      internalID: 2074697177
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: seagull_flying_2_3
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 88c6eb09ab42d0346acccbd4bca0dc13
-      internalID: 324839639
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: seagull_flying_2_4
+      name: priest_attack_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 58
+        height: 58
+      alignment: 9
+      pivot: {x: 0.25, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8259aa5026005b04c9ec1bbc91caffad
-      internalID: -1059622145
+      spriteID: 50b51c681372b1349b1ac778a2b2c5a5
+      internalID: -848765089
       vertices: []
       indices: 
       edges: []
@@ -225,11 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      seagull_flying_2_0: 641297339
-      seagull_flying_2_1: 2028775190
-      seagull_flying_2_2: 2074697177
-      seagull_flying_2_3: 324839639
-      seagull_flying_2_4: -1059622145
+      priest_attack_0: 1215439450
+      priest_attack_1: 434090354
+      priest_attack_2: -848765089
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
