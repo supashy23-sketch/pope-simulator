@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    
+
     [Header("Movement")]
     public float moveSpeed = 5f;
     public float jumpForce = 7f;
@@ -19,10 +21,19 @@ public class PlayerController : MonoBehaviour
     public Vector2 attackSize = new Vector2(1f, 0.5f);
     public LayerMask enemyLayer;
 
+    private Vector2 baseAttackSize;
+    public float attackWidthMultiplier = 1.5f; // ขยายแนวนอนเฉพาะ x
+
+    [Header("Special Attack")]
+    public GameObject lightProjectilePrefab; // prefab ของแสง/โปรเจคไทล์
+    public Transform firePoint;               // จุดปล่อย projectile
+    public float projectileSpeed = 10f;
+
+
     [Header("Light Charge")]
     public int maxLight = 10;       // พลังสูงสุด
     public int currentLight = 0;    // พลังปัจจุบัน
-    public float chargeTime = 3f;   // เวลากดขวาค้างเพื่อชาร์จเต็ม
+    public float chargeTime = 3f;   // เวลากดขวาค้างเพื่อเริ่มชาร์จ
     public Slider lightSlider;      // UI Slider แสดงพลัง
     public int lightDecayPerSecond = 1; // ลดพลังต่อวินาที
 
@@ -31,10 +42,12 @@ public class PlayerController : MonoBehaviour
 
     private bool isGrounded;
     private bool isAttacking;
-    private bool isCharging;
+    [HideInInspector] public bool isCharging = false; // ให้ PlayerLightController เข้ามาเช็คได้
+    //private bool isCharging;
     private float moveX;
     private float chargeCounter = 0f;
     private float lightDecayCounter = 0f;
+    private float lightGainCounter = 0f; // ตัวจับเวลาเพิ่มพลัง
 
     private void Awake()
     {
@@ -44,6 +57,8 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        baseAttackSize = attackSize;
+
         // ตั้งค่า UI Slider
         if (lightSlider != null)
         {
@@ -66,13 +81,24 @@ public class PlayerController : MonoBehaviour
         // Jump
         if (Input.GetButtonDown("Jump") && isGrounded)
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        
+        // ปรับ attackSize เฉพาะแนวนอน
+        if (currentLight > 0)
+        {
+            attackSize.x = baseAttackSize.x * attackWidthMultiplier; // ขยายเฉพาะ x
+            attackSize.y = baseAttackSize.y; // สูงเหมือนเดิม
+        }
+        else
+        {
+            attackSize = baseAttackSize;
+        }
 
         // Attack → คลิกซ้าย
         if (Input.GetMouseButtonDown(0) && !isAttacking)
             Attack();
 
         // Charge Light → คลิกขวาค้าง
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1))  // <<== คลิกขวา
         {
             if (!isCharging) isCharging = true;
             chargeCounter += Time.deltaTime;
@@ -81,30 +107,34 @@ public class PlayerController : MonoBehaviour
             if (animator != null)
                 animator.SetBool("isCharging", true);
 
-            // ชาร์จครบ
+            // ถ้าชาร์จครบเวลาแล้ว → เริ่มเพิ่มพลังทีละ 1 ต่อวินาที
             if (chargeCounter >= chargeTime)
             {
-                currentLight = maxLight;
-                if (lightSlider != null)
-                    lightSlider.value = currentLight;
+                lightGainCounter += Time.deltaTime;
+                if (lightGainCounter >= 1f)
+                {
+                    currentLight += 1;
+                    if (currentLight > maxLight) currentLight = maxLight;
 
-                chargeCounter = 0f;
-                isCharging = false;
-                if (animator != null)
-                    animator.SetBool("isCharging", false);
+                    if (lightSlider != null)
+                        lightSlider.value = currentLight;
+
+                    lightGainCounter = 0f;
+                }
             }
         }
         else
         {
-            // ปล่อยคลิก → รีเซ็ตชาร์จ
+            // ปล่อยคลิก → รีเซ็ตตัวจับเวลา
             isCharging = false;
             chargeCounter = 0f;
+            lightGainCounter = 0f;
             if (animator != null)
                 animator.SetBool("isCharging", false);
         }
 
-        // ลดพลัง Light ทีละวินาที
-        if (currentLight > 0)
+        // ลดพลัง Light ทีละวินาที (เฉพาะตอนที่ไม่ได้ชาร์จ)
+        if (currentLight > 0 && !isCharging)
         {
             lightDecayCounter += Time.deltaTime;
             if (lightDecayCounter >= 1f)
@@ -141,15 +171,22 @@ public class PlayerController : MonoBehaviour
         Vector2 attackPos = (Vector2)transform.position + new Vector2(Mathf.Sign(transform.localScale.x) * attackOffset.x, attackOffset.y);
         Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(attackPos, attackSize, 0f, enemyLayer);
 
-        int damage = (currentLight > 0) ? 5 : 1; // ถ้ามีพลัง → ดาเมจ 5, ปกติ → 1
+        int damage = (currentLight > 0) ? 5 : 1; 
 
         foreach (Collider2D enemy in hitEnemies)
         {
             Vector2 knockbackDir = (enemy.transform.position - transform.position).normalized;
-
-            // ส่งแรง Knockback (ใช้ค่าของ EnemyController หรือค่าที่กำหนด)
-            float knockbackForce = 5f; // หรือปรับตามต้องการ
+            float knockbackForce = 5f;
             enemy.GetComponent<EnemyController>()?.TakeDamage(damage, knockbackDir, knockbackForce);
+        }
+
+        // ถ้า currentLight > 1 ปล่อย projectile
+        if (currentLight > 1 && lightProjectilePrefab != null && firePoint != null)
+        {
+            GameObject proj = Instantiate(lightProjectilePrefab, firePoint.position, Quaternion.identity);
+            Rigidbody2D rbProj = proj.GetComponent<Rigidbody2D>();
+            if (rbProj != null)
+                rbProj.velocity = new Vector2(Mathf.Sign(transform.localScale.x) * projectileSpeed, 0f);
         }
     }
 
