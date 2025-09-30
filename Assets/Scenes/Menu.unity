@@ -2332,7 +2332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58064cebfbca72c45ad75ea4db957b2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Stage1
+  sceneName: Level1
   changeOnClick: 1
 --- !u!4 &416424160
 Transform:

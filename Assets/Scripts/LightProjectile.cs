@@ -16,7 +16,7 @@ public class LightProjectile : MonoBehaviour
         if (enemy != null)
         {
             enemy.TakeDamage(damage, Vector2.zero, 0f); // แรง knockback = 0
-            Destroy(gameObject); // หายทันทีเมื่อชนศัตรู
+            
         }
     }
 }

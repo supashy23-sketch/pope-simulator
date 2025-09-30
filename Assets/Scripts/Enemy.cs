@@ -6,12 +6,13 @@ public class EnemyController : MonoBehaviour
 {
     [Header("Enemy Stats")]
     public int health = 3;
+    public int damage = 1;          // ปรับ damage แต่ละตัวใน Inspector
     public float moveSpeed = 2f;
-    public float followRange = 5f;    // ระยะที่เริ่มตาม Player
-    public float knockbackForce = 5f; // แรงกระเด็นเมื่อโดนโจมตี
+    public float followRange = 5f;
+    public float knockbackForce = 5f; // ใช้ส่งไป Player
 
     private float knockbackTimer = 0f;
-    public float knockbackDuration = 0.2f; // ระยะเวลาให้กระเด็น
+    public float knockbackDuration = 0.2f;
 
     private Vector2 knockbackVelocity;
 
@@ -21,19 +22,18 @@ public class EnemyController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player")?.transform;
     }
 
     private void Update()
     {
         if (player == null) return;
 
-        // ลดเวลา knockback
         if (knockbackTimer > 0)
         {
             knockbackTimer -= Time.deltaTime;
             rb.velocity = knockbackVelocity;
-            return; // ขณะกระเด็นไม่ทำ Movement ปกติ
+            return;
         }
 
         float distance = Vector2.Distance(transform.position, player.position);
@@ -55,8 +55,6 @@ public class EnemyController : MonoBehaviour
     public void TakeDamage(int dmg, Vector2 knockbackDir, float force)
     {
         health -= dmg;
-
-        // กำหนด Knockback ด้วย force ที่ส่งมา
         knockbackVelocity = new Vector2(knockbackDir.x * force, knockbackDir.y * force);
         knockbackTimer = knockbackDuration;
 
@@ -64,8 +62,27 @@ public class EnemyController : MonoBehaviour
             Die();
     }
 
+    public void TakeDamage(int dmg)
+    {
+        TakeDamage(dmg, Vector2.zero, 0f);
+    }
+
     private void Die()
     {
         Destroy(gameObject);
+    }
+
+    // ⚡ โจมตี Player
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                Vector2 knockDir = (collision.transform.position - transform.position).normalized;
+                playerHealth.TakeDamage(damage, knockDir, knockbackForce);
+            }
+        }
     }
 }
