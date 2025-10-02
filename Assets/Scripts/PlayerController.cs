@@ -5,7 +5,10 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    
+    [Header("Sound Settings")]
+    public AudioClip soundClip;   // ลากไฟล์เสียงมาใส่
+
+    private AudioSource audioSource;
 
     [Header("Movement")]
     public float moveSpeed = 5f;
@@ -53,6 +56,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     private void Start()
@@ -168,6 +172,11 @@ public class PlayerController : MonoBehaviour
     // เรียกจาก Animation Event → ฟันจริง
     public void DoAttack()
     {
+        if (soundClip != null)
+        {
+            audioSource.PlayOneShot(soundClip);
+        }
+
         Vector2 attackPos = (Vector2)transform.position + new Vector2(Mathf.Sign(transform.localScale.x) * attackOffset.x, attackOffset.y);
         Collider2D[] hitEnemies = Physics2D.OverlapBoxAll(attackPos, attackSize, 0f, enemyLayer);
 
